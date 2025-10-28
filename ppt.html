@@ -31,6 +31,11 @@ body {
   padding: 0;
   display: flex;
 }
+section.toppart ul li {
+    line-height: 2;
+    font-size: 20px;
+}
+
 .trainingp ul li {
     font-size: 20px;
     line-height: 2;
@@ -224,6 +229,13 @@ h2 {
   font-size: 2rem;
   margin-bottom: 30px;
 }
+h2.maintext2 {
+    margin-top: 50px;
+}
+.side-list ul li {
+    font-size: 20px;
+    line-height: 2;
+}
 	ul.appinfoo {
     border-top: 1px solid #ffffff54;
     border-bottom: 1px solid #ffffff54;
@@ -299,6 +311,42 @@ img.analysis-visual {
     width: 100%;
 }
 }
+@media (max-width: 540px) {
+section.toppart ul li {
+    line-height: 2;
+    font-size: 20px;
+}
+    section.toppart {
+        padding: 20px 9px;
+    }
+    h2.maintext2 {
+    margin-top: 20px;
+}
+.analysis-text2 ul li {
+    line-height: 2;
+    font-size: 18px;
+}
+.analysis-text1 ul li {
+    line-height: 2;
+    font-size: 18px;
+}
+.analysis-text ul li {
+    line-height: 2;
+    font-size: 18px;
+}
+    section.toppart ul li {
+        line-height: 2;
+        font-size: 18px;
+    }
+    .side-list ul li {
+    font-size: 18px;
+    line-height: 2;
+}
+    .container h2 {
+        font-size: 1.2rem;
+    }
+}
+
 </style>
 </head>
 <body>
@@ -341,16 +389,18 @@ img.analysis-visual {
   <div class="container">
     <section class="toppart">
       <h2 class="maintext">Basketball Performance Analysis & Training App</h2>
-      
-		<p>Motion Tracking, Gamification & Trainer Collaboration</p>
-         <p>AI-based motion capture | Real-time feedback | Goal tracking
-</p>
+      <ul>
+		<li>Motion Tracking, Gamification & Trainer Collaboration</li>
+         <li>AI-based motion capture </li>
+          <li> Real-time feedback </li>
+          <li> Goal tracking</li>
+</ul>
     </section>
     
 	 
 	  <div class="container">
     <!-- First Section: Modules Overview -->
-    <h1>Modules Overview</h1>
+    <h2 class="maintext2">Modules Overview</h2>
   
    <!-- Accordion Modules Overview Section -->
 <div class="section" style="margin-bottom:36px;">
@@ -364,7 +414,7 @@ img.analysis-visual {
       <div class="accordion-content">
         <div class="accordion-inner">
           <div class="container">
-            <h2>Shooting Analysis Module (Overview)</h2>
+            <h2 class="maintext2">Shooting Analysis Module (Overview)</h2>
             <div class="analysis-section">
               <div class="analysis-text">
                 <div style="margin-bottom:12px;"><strong>Goal:</strong></div>
@@ -423,7 +473,7 @@ img.analysis-visual {
         <div style="padding:12px 6px 6px 0;">
          <div class="container">
     <!-- Second Section: Shooting Analysis Module -->
-    <h2 style="margin-top:70px;">Dribbling Analysis Module (Overview)</h2>
+    <h2 class="maintext2">Dribbling Analysis Module (Overview)</h2>
     <div class="analysis-section">
       <div class="analysis-text">
 		    <div style="margin-bottom:12px;font-size: 18px;"><strong>Goal:</strong></div>
@@ -488,7 +538,7 @@ img.analysis-visual {
       <div class="accordion-content">
         <div style="padding:12px 6px 6px 0;" class="trainingp">
          <div class="container">
-    <h2>Training & Exercise Tracking (Overview)</h2>
+    <h2 class="maintext2">Training & Exercise Tracking (Overview)</h2>
 			 <div style="margin-bottom:12px;font-size: 18px;"><strong>Goal:</strong></div>
     <ul>
       <li> Track physical strength, agility, and injury prevention.</li>
@@ -516,7 +566,7 @@ img.analysis-visual {
 	  </div>
 	   <div class="container">
     <!-- Second Section: Shooting Analysis Module -->
-    <h2 style="margin-top:70px;">Trainer Collaboration Tools</h2>
+    <h2 class="maintext2">Trainer Collaboration Tools</h2>
     <div class="analysis-section">
       <div class="analysis-text">
         <ul>
@@ -545,7 +595,7 @@ img.analysis-visual {
 	  
 	     <div class="container">
     <!-- Second Section: Shooting Analysis Module -->
-    <h2 style="margin-top:70px;">Gamification for Motivation</h2>
+    <h2 class="maintext2">Gamification for Motivation</h2>
     <div class="analysis-section">
       <div class="analysis-text">
         <ul>
@@ -577,7 +627,7 @@ img.analysis-visual {
 	  
 	  <div class="container">
     <!-- Second Section: Shooting Analysis Module -->
-    <h2 style="margin-top:70px;">Productivity & Cost Advantage</h2>
+    <h2 class="maintext2">Productivity & Cost Advantage</h2>
     <div class="analysis-section">
       <div class="analysis-text">
         <ul>
@@ -632,7 +682,7 @@ img.analysis-visual {
 	  
 	  <div class="container">
     <!-- Second Section: Shooting Analysis Module -->
-    <h2 style="margin-top:70px;">Conclusion & Next Steps</h2>
+    <h2 class="maintext2">Conclusion & Next Steps</h2>
     <div class="analysis-section">
       <div class="analysis-text2">
         <ul>
