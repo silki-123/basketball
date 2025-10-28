@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>Basketball Training App - Presentation</title>
+<style>
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(145deg, #dfe3e6, #f2f4f5);
+    color: #2f2f2f;
+    margin: 0;
+    padding: 20px;
+  }
+  .container {
+    max-width: 1080px;
+    margin: auto;
+  }
+  section {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    padding: 20px 25px;
+    margin-bottom: 30px;
+    border: 1px solid #d1d1d1;
+  }
+  section h2 {
+    color: #3c91e6;
+    margin-top: 0;
+  }
+  section img {
+    max-width: 100%;
+    height: auto;
+    margin: 15px 0;
+    border-radius: 10px;
+  }
+  p {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+	.maintext{
+		text-align: center;
+		font-size: 30px;
+	}
+	
+.container {
+    max-width: 1080px;
+    margin: 36px auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+    padding: 28px 24px 40px;
+    border: 1px solid #d1d1d1;
+  }
+  h1, h2 {
+    margin-top: 0;
+    font-weight: 700;
+    color: #3c91e6;
+    text-align: center;
+    letter-spacing: 2px;
+  }
+  h1 {
+    font-size: 2.1rem;
+    margin-bottom: 35px;
+  }
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+	section.toppart p {
+    font-size: 22px;
+    padding-left: 30px;
+    line-height: 2.5;
+}
+	section.toppart {
+    padding: 50px;
+}
+  .ppt-image, .analysis-visual {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 16px rgba(60,145,230,0.07);
+    background: #f0f6fd;
+  }
+  .module-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin: 0;
+    padding: 0;
+  }
+  .module-card {
+    background: #c7dbf1;
+    border-radius: 8px;
+    padding: 20px 22px;
+    font-size: 1.18rem;
+    font-weight: 500;
+    color: #192841;
+    margin-bottom: 0;
+  }
+  .module-card:last-child {
+    background: #e1eaf6;
+    color: #234;
+  }
+	.analysis-text ul li {
+    line-height: 2;
+    font-size: 20px;
+}
+  .analysis-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+  .analysis-text {
+    flex: 2 1 350px;
+    min-width: 310px;
+  }
+  .analysis-img-block {
+    flex: 1 1 320px;
+    text-align: center;
+    min-width: 260px;
+  }
+  ul {
+    margin-top: 0;
+  }
+  .side-columns {
+    display: flex;
+    gap: 38px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+  }
+  .side-list {
+    flex: 1 1 190px;
+    background: #f6fafd;
+    border: 1px solid #d1d1d1;
+    border-radius: 8px;
+    padding: 13px 18px 10px 18px;
+    font-size: 1rem;
+  }
+  .side-list ul {
+    margin: 8px 0 0 0;
+    padding-left: 20px;
+  }
+  .side-list strong {
+    color: #3c91e6;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .outcome {
+    margin-top: 18px;
+    font-size: 1.02rem;
+    background: #e7f3ed;
+    border-radius: 7px;
+    padding: 12px 15px;
+    color: #245852;
+    font-weight: 500;
+    text-align: center;
+  }
+	
+	#accordion {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.accordion-item {
+  border-radius: 8px;
+  box-shadow: 0 2px 7px #cce3f6;
+  margin-bottom: 13px;
+  background: #e2ecfa;
+  border: 1px solid #bed6ea;
+}
+.accordion-header {
+  background: none;
+  border: none;
+  outline: none;
+  width: 100%;
+  text-align: left;
+  font-size: 1.14rem;
+  font-weight: 600;
+  padding: 15px 18px;
+  cursor: pointer;
+  border-radius: 8px;
+  color: #234;
+  transition: background 0.19s;
+}
+.accordion-header:hover,
+.accordion-header.active {
+  background: #c7dbf1;
+  color: #2066a8;
+}
+.accordion-content {
+  padding: 0 18px 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  background: #f9fcff;
+  border-radius: 0 0 8px 8px;
+  border-top: 1px solid #d1d1d1;
+  transition: max-height 0.32s cubic-bezier(.41,.2,.23,1);
+}
+.accordion-content.open {
+  max-height: 900px; /* enough for your short content */
+  padding-bottom: 14px;
+}
+  @media (max-width: 800px) {
+	  section.toppart {
+    padding: 20px;
+}
+    .analysis-section, .side-columns {
+      flex-direction: column;
+      gap: 20px;
+    }
+    .container {
+      padding: 10px 3vw 18px;
+    }
+    h1 {font-size: 1.38rem;}
+    h2 {font-size: 1.12rem;}
+    .module-card {font-size: 1rem; padding: 13px 9px;}
+    .ppt-image, .analysis-visual {margin-bottom: 15px;}
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <section class="toppart">
+      <h2 class="maintext">Basketball Performance Analysis & Training App</h2>
+      
+		<p>Motion Tracking, Gamification & Trainer Collaboration</p>
+         <p>AI-based motion capture | Real-time feedback | Goal tracking
+</p>
+    </section>
+    
+	 
+	  <div class="container">
+    <!-- First Section: Modules Overview -->
+    <h1>Modules Overview</h1>
+  
+   <!-- Accordion Modules Overview Section -->
+<div class="section" style="margin-bottom:36px;">
+  
+  <div id="accordion">
+    <div class="accordion-item">
+      <button class="accordion-header">1. Shooting Analysis</button>
+      <div class="accordion-content">
+        <div style="padding:12px 6px 6px 0;">
+         <div class="container">
+    <!-- Second Section: Shooting Analysis Module -->
+    <h2 style="margin-top:70px;">Shooting Analysis Module (Overview)</h2>
+    <div class="analysis-section">
+      <div class="analysis-text">
+		  <div style="margin-bottom:12px;font-size: 18px;"><strong>Goal:</strong></div>
+        <ul>
+          <li> Evaluate overall shooting technique.</li>
+        </ul>
+        <div style="margin-bottom:12px; font-size: 18px;"><strong>Core Metrics:</strong></div>
+        <ul>
+          <li>Posture, trajectory, timing</li>
+          <li>Knee &amp; hip angles</li>
+          <li>Elbow angle</li>
+          <li>Finger flexion</li>
+          <li>Ball entry angle, height, speed</li>
+          <li>Dribble &amp; shot phase timing</li>
+        </ul>
+       
+       
+      </div>
+      <div class="analysis-img-block">
+        <img src="images/Picture2.png" alt="Shooting Analysis Module Visual" class="analysis-visual" />
+	
+		
+    </div>
+		<div class="accodianbot">
+			 
+		   <div class="side-columns">
+          <div class="side-list">
+            <strong>Skilled Player:</strong>
+            <ul>
+              <li>Deep bend, high arc, fast release.</li>
+              <li>Smooth follow-through, steep entry angle.</li>
+              <li>Low stance, smooth hand switches, fast consistent rhythm.</li>
+            </ul>
+          </div>
+          
+        
+		  <div class="side-list">
+            <strong>Less Skilled Player:</strong>
+            <ul>
+              <li>Upright posture, flat arc, short release.</li>
+              <li>Straighter fingers, slower speed.</li>
+              <li>Upright, slow, irregular, weak control.</li>
+            </ul>
+          </div>
+			   </div>
+      </div>
+		 <div class="outcome">
+          Outcome: Visual comparison, performance graphs, and trajectory mapping.
+        </div>
+		</div>
+  </div>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-header">2. Dribbling Analysis</button>
+      <div class="accordion-content">
+        <div style="padding:12px 6px 6px 0;">
+         <div class="container">
+    <!-- Second Section: Shooting Analysis Module -->
+    <h2 style="margin-top:70px;">Dribbling Analysis Module (Overview)</h2>
+    <div class="analysis-section">
+      <div class="analysis-text">
+		    <div style="margin-bottom:12px;font-size: 18px;"><strong>Goal:</strong></div>
+        <ul>
+          <li>Measure ball handling and control efficiency.
+</li>
+        </ul>
+        <div style="margin-bottom:12px;font-size: 18px;"><strong>Core Metrics:</strong></div>
+        <ul>
+          <li>Stance & posture</li>
+          <li>Dribble height (knee-waist optimal)</li>
+          <li>- Dribble frequency (bounces/sec)
+</li>
+          <li>Hand switching and transitions</li>
+          <li>- Ball proximity control
+</li>
+          <li>Dribble-to-action timing</li>
+        </ul>
+       
+		  
+      </div>
+      <div class="analysis-img-block">
+        <img src="images/Picture1.png" alt="Shooting Analysis Module Visual" class="analysis-visual" />
+      </div>
+		
+		<div class="acoodbot">
+		 <div class="side-columns">
+          <div class="side-list">
+            <strong>Skilled Player:</strong>
+            <ul>
+              <li>Low stance, smooth hand switches, fast consistent rhythm.</li>
+             
+            </ul>
+          </div>
+          <div class="side-list">
+            <strong>Less Skilled Player:</strong>
+            <ul>
+              <li>- Upright, slow, irregular, weak control.
+</li>
+             
+            </ul>
+          </div>
+        </div>
+        <div class="outcome">
+         <p> Output: Animation-based feedback and efficiency scores.</p>
+			<p>Trainer Feature: Assign personalized dribbling goals and drills, track progress.
+</p>
+
+        </div>
+		</div>
+    </div>
+  </div>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-header">3. Training Module</button>
+      <div class="accordion-content">
+        <div style="padding:12px 6px 6px 0;">
+         <div class="container">
+    <h2>Training & Exercise Tracking (Overview)</h2>
+			 <div style="margin-bottom:12px;font-size: 18px;"><strong>Goal:</strong></div>
+    <ul>
+      <li> Track physical strength, agility, and injury prevention.</li>
+    </ul>
+			 <div style="margin-bottom:12px;font-size: 18px;"><strong>Core Drills:</strong></div>
+    <ul>
+    
+      <li>– Jumping (height, stability, takeoff/landing)</li>
+      <li>– Squats (depth, knee alignment)</li>
+      <li>– Lunges (stride, balance)</li>
+      <li>– Core (plank, twists)</li>
+      <li>– Push-ups (angle, range)</li>
+      <li>– Agility ladder drills (foot speed, stability)</li>
+    </ul>
+    <p class="feature">
+      Trainer Feature: Assign weekly exercise plans and evaluate completion scores.
+    </p>
+  </div>
+        </div>
+      </div>
+    </div>
+   
+	  
+	  <div style="padding:12px 6px 6px 0; font-size: 20px;">
+         <strong> Each generates data-driven feedback & progress tracking dashboards.</strong>
+        </div>
+  </div>
+</div>
+
+	  </div>
+	   <div class="container">
+    <!-- Second Section: Shooting Analysis Module -->
+    <h2 style="margin-top:70px;">Trainer Collaboration Tools</h2>
+    <div class="analysis-section">
+      <div class="analysis-text">
+        <ul>
+          <li>Trainers assign custom shooting/dribbling goals.</li>
+        </ul>
+        <div style="margin-bottom:12px;">
+        <ul>
+          <li>- Real-time monitoring of player stats & goal completion.
+</li>
+          <li>Integrated chat and video review for remote guidance.</li>
+			<li>- AI suggestions recommend corrective drills automatically.
+</li>
+        </ul>
+			</div>
+      </div>
+      <div class="analysis-img-block">
+        <img src="images/Picture3.png" alt="Shooting Analysis Module Visual" class="analysis-visual" />
+      </div>
+    
+  </div>
+	
+	</div>
+	  
+	  
+	  
+	  
+	     <div class="container">
+    <!-- Second Section: Shooting Analysis Module -->
+    <h2 style="margin-top:70px;">Gamification for Motivation</h2>
+    <div class="analysis-section">
+      <div class="analysis-text">
+        <ul>
+          <li>- XP points, badges, and leaderboards drive consistency.
+</li>
+        </ul>
+        <div style="margin-bottom:12px;">
+        <ul>
+          <li>- Streak rewards for daily practice & improvement.
+
+</li>
+          <li>- ‘Coach Challenges’ create team-based competition.
+</li>
+			<li>- Unlock levels tied to measurable skill growth.
+
+</li>
+        </ul>
+			</div>
+      </div>
+      <div class="analysis-img-block">
+        <img src="images/Picture4.png" alt="Shooting Analysis Module Visual" class="analysis-visual" />
+      </div>
+    
+  </div>
+	
+	</div>
+	  
+	  
+	  
+	  <div class="container">
+    <!-- Second Section: Shooting Analysis Module -->
+    <h2 style="margin-top:70px;">Productivity & Cost Advantage</h2>
+    <div class="analysis-section">
+      <div class="analysis-text">
+        <ul>
+          <li>- Average basketball trainer cost: $50–$120/hour (U.S. avg ≈ $80/hour).
+
+</li>
+        </ul>
+        <div style="margin-bottom:12px;">
+        <ul>
+          <li>- Monthly training costs: $600–$1,200.
+
+
+</li>
+          <li>- Extends coaching beyond sessions → +30–40% more productive practice.
+
+</li>
+			<li>- Reduces training cost up to 70% by supplementing paid time.
+
+
+</li>
+			<li>- Reduces training cost up to 70% by supplementing paid time.
+
+
+
+</li>
+        </ul>
+			</div>
+      </div>
+      <div class="analysis-img-block">
+        <div class="analysis-text" style="margin-bottom:12px; text-align: left;">
+        <ul>
+          
+          <li>- Enables continuous data tracking and feedback.- Merges research-backed analytics with everyday learning.
+
+</li>
+			<li>- Unlock levels tied to measurable skill growth.
+
+</li>
+			<li>- Problem: High costs + limited trainer time reduce accessibility.
+</li>
+			<li>- Solution: AI app delivers continuous, affordable training support.
+</li>
+        </ul>
+			</div>
+      </div>
+    
+  </div>
+	
+	</div>
+	  
+	  
+	  
+	  <div class="container">
+    <!-- Second Section: Shooting Analysis Module -->
+    <h2 style="margin-top:70px;">Conclusion & Next Steps</h2>
+    <div class="analysis-section">
+      <div class="analysis-text">
+        <ul>
+          <li>- Motion-capture research confirms performance improvement potential.
+
+
+</li>
+        </ul>
+        <div style="margin-bottom:12px;">
+        <ul>
+          <li>- App democratizes elite-level analytics for all players.
+
+
+
+</li>
+          <li>- Next Steps: Prototype, trainer onboarding, gamification testing.
+
+
+</li>
+			<li>- Goal: Affordable, scientific, and engaging basketball training ecosystem.
+
+
+
+</li>
+			
+        </ul>
+			</div>
+      </div>
+      
+  </div>
+	
+	</div>
+	
+	<script>
+document.querySelectorAll('.accordion-header').forEach(header => {
+  header.addEventListener('click', function() {
+    // Close all
+    document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('open'));
+    document.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('active'));
+    // Open this one
+    if (!this.nextElementSibling.classList.contains('open')) {
+      this.nextElementSibling.classList.add('open');
+      this.classList.add('active');
+    }
+  });
+});
+// Optionally, open first accordion by default
+document.querySelector('.accordion-header').click();
+</script>
+
+	
+</body>
+</html>

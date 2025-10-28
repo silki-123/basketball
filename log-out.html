@@ -75,10 +75,20 @@
     color: var(--accent-blue);
     border: 2px solid var(--accent-blue);
   }
+  .btn-cancel a {
+   color: var(--accent-blue);
+   list-style: none;
+    text-decoration: none;
+  }
   .btn-cancel:hover {
-    background-color: var(--accent-blue);
+    background-color: #4cd964;
     color: #fff;
   }
+  .btn-cancel a:hover {
+   
+    color: #fff;
+  }
+
   @media (max-width: 480px) {
     .logout-container {
       padding: 2rem 1.5rem;
@@ -102,7 +112,7 @@
     <p>Are you sure you want to log out from Hoopers Den?</p>
     <div class="buttons">
       <button class="btn-logout" onclick="handleLogout()">Log Out</button>
-      <button class="btn-cancel" onclick="cancelLogout()">Cancel</button>
+   <button class="btn-cancel" onclick="window.location.href='home.html'">Cancel</button>
     </div>
   </div>
 
@@ -110,11 +120,11 @@
     function handleLogout() {
       // Perform logout logic here, e.g. clear session, redirect
       alert('You have been logged out. Redirecting to login page.');
-      window.location.href = 'login.html'; // Adjust as needed
+      window.location.href = 'index.html'; // Adjust as needed
     }
     function cancelLogout() {
       // Return to dashboard or previous page
-      window.location.href = 'dashboard.html'; // Adjust as needed
+      window.location.href = 'home.html'; // Adjust as needed
     }
   </script>
 </body>

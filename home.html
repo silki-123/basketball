@@ -3,8 +3,8 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>Hoopers Den – Dribbling Analysis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hoopers Den - Dashboard</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
   <style>
@@ -17,21 +17,31 @@
       --accent-blue: #3c91e6;
       --accent-green: #4cd964;
       --neutral-light: #dfe3e6;
-      --neutral-lighter: #f2f4f5;
-      --neutral-card: #ffffff;
-      --neutral-border: #d1d1d1;
       --neutral-text: #2f2f2f;
+      --neutral-card: #fff;
       --neutral-subtext: #5c5c5c;
+      --neutral-border: #d1d1d1;
       --overlay-bg: rgba(20, 30, 50, 0.56);
     }
 
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: 'Montserrat', sans-serif;
       margin: 0;
-      background: linear-gradient(145deg, var(--neutral-light), var(--neutral-lighter));
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(145deg, var(--neutral-light), #f2f4f5);
       color: var(--neutral-text);
       min-height: 100vh;
       display: flex;
+    }
+
+    ul.appinfoo {
+      border-top: 1px solid #ffffff54;
+      border-bottom: 1px solid #ffffff54;
+      padding-top: 10px;
+      padding-bottom: 10px;
     }
 
     /* Sidebar base */
@@ -60,6 +70,7 @@
       font-weight: 700;
       font-size: 1.28rem;
       border-bottom: 1px solid #223052;
+      position: relative;
     }
 
     .sidebar-header .h-title {
@@ -68,6 +79,7 @@
       transition: opacity .3s;
     }
 
+    /* Sidebar menu & footer */
     .sidebar-menu {
       flex-grow: 1;
       overflow-y: auto;
@@ -116,6 +128,7 @@
       color: #c0ccda;
     }
 
+    /* Sidebar collapse for desktop */
     .sidebar.collapsed {
       width: var(--sidebar-width-collapsed);
       min-width: var(--sidebar-width-collapsed);
@@ -131,6 +144,7 @@
       display: none;
     }
 
+    /* Sidebar overlay for mobile */
     .sidebar-overlay {
       display: none;
       position: fixed;
@@ -142,6 +156,12 @@
       z-index: 199;
     }
 
+    i.ri-arrow-left-s-line {
+      background-color: #fff;
+      border-radius: 3px;
+    }
+
+    /* Main content */
     .main-content {
       flex: 1 1 0%;
       margin-left: var(--sidebar-width);
@@ -154,10 +174,18 @@
       min-height: 100vh;
     }
 
+    .container2 {
+      max-width: 1200px;
+      width: 100%;
+      padding: 40px 30px;
+      flex: 1;
+    }
+
     .sidebar.collapsed~.main-content {
       margin-left: var(--sidebar-width-collapsed);
     }
 
+    /* Sidebar toggler - only visible mobile/tablet */
     .sidebar-toggler {
       display: none;
       position: fixed;
@@ -167,29 +195,25 @@
       color: var(--accent-blue);
       border-radius: 6px;
       box-shadow: 0 2px 7px rgba(0, 0, 0, 0.09);
-
       padding: 7px 10px;
       z-index: 300;
       border: none;
       cursor: pointer;
     }
 
+    /* Sidebar collapser (desktop only) */
     .sidebar-collapser {
       background: none;
       border: none;
       color: var(--accent-blue);
       position: absolute;
-      top: 18px;
+      top: 50%;
+      transform: translateY(-50%);
       right: -19px;
       cursor: pointer;
       font-size: 1.25em;
       z-index: 250;
       display: none;
-    }
-
-    i.ri-arrow-left-s-line {
-      background-color: #fff;
-      border-radius: 3px;
     }
 
     @media (min-width: 992px) {
@@ -210,6 +234,7 @@
       }
     }
 
+    /* Mobile/Tablet: Sidebar slides over content */
     @media (max-width: 991px) {
       .sidebar {
         left: -220px;
@@ -234,6 +259,10 @@
         margin-left: 0 !important;
       }
 
+      .container2 {
+        padding: 70px 20px 20px;
+      }
+
       .sidebar-overlay {
         display: none;
       }
@@ -243,108 +272,52 @@
       }
     }
 
-    /* YOUR ORIGINAL CONTAINER SECTION --- DO NOT MODIFY BELOW */
-    .container {
-      max-width: 950px;
-      margin: 40px auto;
+    /* Dashboard cards & responsive grid */
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 25px;
+      margin-bottom: 30px;
+    }
+
+    .card {
       background: var(--neutral-card);
-      border-radius: 14px;
-      padding: 40px 30px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-      border: 1px solid var(--neutral-border);
-    }
-
-    h2 {
+      border-radius: 12px;
+      padding: 22px 14px;
       text-align: center;
-      color: var(--accent-blue);
-      margin-bottom: 25px;
-    }
-
-    .tab-buttons {
+      border: 1px solid var(--neutral-border);
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.07);
+      min-height: 120px;
       display: flex;
+      flex-direction: column;
       justify-content: center;
-      gap: 15px;
-      margin-bottom: 25px;
-    }
-
-    .tab-buttons button {
-      background: var(--accent-blue);
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      padding: 10px 18px;
-      font-weight: 600;
       cursor: pointer;
-      transition: .3s;
+      transition: .25s;
     }
 
-    .tab-buttons button:hover {
-      background: var(--accent-green);
+    .card h2 {
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+      margin-top: 0;
     }
 
-    .section {
-      display: none;
+    .card p {
+      font-size: 0.86rem;
+      color: var(--neutral-subtext);
+      margin: 0;
     }
 
-    .section.active {
-      display: block;
+    .card:hover {
+      border-color: var(--accent-green);
+      color: var(--accent-green);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.11);
     }
 
-    .upload-area {
-      text-align: center;
-      margin-top: 10px;
+    .card:hover h2 {
+      color: var(--accent-green);
     }
 
-    input[type=file] {
-      padding: 8px;
-      border: 1px solid var(--neutral-border);
-      border-radius: 6px;
-      background: var(--neutral-lighter);
-    }
-
-    .action-btn {
-      background: var(--accent-blue);
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      padding: 10px 18px;
-      font-weight: 600;
-      margin-left: 10px;
-      cursor: pointer;
-    }
-
-    .action-btn:hover {
-      background: var(--accent-green);
-    }
-
-    .output-area {
-      margin-top: 30px;
-      text-align: center;
-    }
-
-    video {
-      width: 100%;
-      max-height: 480px;
-      border-radius: 10px;
-      border: 1px solid var(--neutral-border);
-    }
-
-    .stats-box {
-      background: var(--neutral-lighter);
-      border: 1px solid var(--neutral-border);
-      border-radius: 10px;
-      padding: 15px;
-      margin-top: 20px;
-      display: inline-block;
-      text-align: left;
-    }
-
-    .live-section {
-      text-align: center;
-    }
-
-    footer.analysis-footer,
-    footer {
+    footer.analysis-footer {
       width: 100%;
       text-align: center;
       padding: 18px;
@@ -355,17 +328,49 @@
       margin-top: auto;
     }
 
-    @media (max-width:600px) {
-      .container {
-        padding: 20px 8px;
+    @media (max-width: 900px) {
+      .dashboard {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 18px;
+      }
+
+      .card {
+        padding: 18px 12px;
+      }
+
+      .container2 {
+        padding: 60px 15px 15px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .dashboard {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .container2 {
+        padding: 60px 12px 12px;
+      }
+
+      .card {
+        padding: 16px 10px;
+        min-height: 100px;
+      }
+
+      .card h2 {
+        font-size: 1rem;
+      }
+
+      .card p {
+        font-size: 0.82rem;
       }
     }
   </style>
 </head>
 
 <body>
-
-  <!-- Sidebar Navigation -->
+  <!-- Sidebar -->
   <nav class="sidebar" id="sidebar">
     <div class="sidebar-header">
       <span class="icon"><i class="ri-basketball-fill"></i></span>
@@ -376,17 +381,16 @@
     </div>
     <div class="sidebar-menu">
       <ul>
-        <li><a href="home.html"><span class="icon"><i class="ri-dashboard-fill"></i></span>
+        <li class="active"><a href="home.html"><span class="icon"><i class="ri-dashboard-fill"></i></span>
             <span>Dashboard</span></a></li>
-        <li><a href="profile2.html"><span class="icon"><i class="ri-user-fill"></i></span> <span>Profile</span></a></li>
+        <li><a href="profile2.html"><span class="icon"><i class="ri-user-fill"></i></span> <span>Profile</span></a>
+        </li>
         <li><a href="Shooting-Analysis.html"><span class="icon"><i class="ri-basketball-line"></i></span>
             <span>Shooting</span></a></li>
-        <li class="active"><a href="Dribbling-Analysis.html"><span class="icon"><i class="ri-dribbble-line"></i></span>
+        <li><a href="Dribbling-Analysis.html"><span class="icon"><i class="ri-dribbble-line"></i></span>
             <span>Dribbling</span></a></li>
         <li><a href="Training-Module.html"><span class="icon"><i class="ri-run-line"></i></span>
             <span>Training</span></a></li>
-
-        <!--        <li><a href="trainer.html"><span class="icon"><i class="ri-team-line"></i></span> <span>Trainer</span></a></li>-->
         <li><a href="Gamification.html"><span class="icon"><i class="ri-award-line"></i></span>
             <span>Gamification</span></a></li>
         <li><a href="log-out.html"><span class="icon"><i class="ri-logout-box-r-line"></i></span>
@@ -397,75 +401,66 @@
             <span>App Info</span></a></li>
       </ul>
     </div>
+    
     <div class="sidebar-footer">© 2025 Hoopers Den<br>Powered by Motion AI</div>
   </nav>
-
   <div class="sidebar-overlay" id="sidebar-overlay"></div>
   <main class="main-content">
-    <div class="container">
-      <h2>Dribbling Analysis</h2>
-
-      <div class="tab-buttons">
-        <button onclick="showTab('upload')">📁 Upload Video</button>
-        <button onclick="showTab('live')">🎥 Live Analysis</button>
-      </div>
-
-      <!-- Upload Section -->
-      <div id="upload" class="section">
-        <div class="upload-area">
-          <form id="uploadForm" enctype="multipart/form-data">
-            <input type="file" id="videoFile" name="videoFile" accept="video/*" required />
-            <button class="action-btn" type="submit">Start Analysis</button>
-          </form>
+    <button class="sidebar-toggler" id="sidebar-toggler" aria-label="Open Sidebar">
+      <i class="ri-menu-line"></i>
+    </button>
+    <div class="container2">
+      <header>
+        <h1>Dashboard Overview</h1>
+      </header>
+      <section class="dashboard">
+        <div class="card" onclick="location.href='Shooting-Analysis.html'">
+          <h2>Shooting Analysis</h2>
+          <p>Track shot angles, release speed, and accuracy.</p>
         </div>
-
-        <div class="output-area" id="outputArea" hidden>
-          <h3>Processed Video:</h3>
-          <video id="processedVideo" controls></video>
-
-          <div class="stats-box" id="statsBox" hidden>
-            <strong>STATS</strong><br>
-            Player Height: <span id="heightStat">–</span> px<br>
-            Dribble Count: <span id="dribbleStat">–</span><br>
-            Avg Speed: <span id="speedStat">–</span> ms/frame
-          </div>
+        <div class="card" onclick="location.href='Dribbling-Analysis.html'">
+          <h2>Dribbling Analysis</h2>
+          <p>Analyze rhythm, hand switches, and control.</p>
         </div>
-      </div>
-
-      <!-- Live Section -->
-      <div id="live" class="section">
-        <div class="live-section">
-          <h3>Live Camera Analysis</h3>
-          <video id="liveVideo" autoplay muted playsinline></video><br>
-          <button class="action-btn" id="stopLive">Stop Analysis</button>
+        <div class="card" onclick="location.href='Training-Module.html'">
+          <h2>Training Module</h2>
+          <p>Do squats, lunges, and agility drills.</p>
         </div>
-      </div>
+        <div class="card" onclick="location.href='profile2.html'">
+          <h2>Trainer Collaboration</h2>
+          <p>Chat, view goals, and get feedback.</p>
+        </div>
+        <div class="card" onclick="location.href='Gamification.html'">
+          <h2>Gamification</h2>
+          <p>Earn XP, badges, and compete.</p>
+        </div>
+      </section>
     </div>
     <footer class="analysis-footer">
       © 2025 Hoopers Den | Powered by Motion AI
     </footer>
   </main>
   <script>
-    // Sidebar logic
     const sidebar = document.getElementById('sidebar');
-    const toggler = document.createElement("button");
-    toggler.innerHTML = '<i class="ri-menu-line"></i>';
-    toggler.id = "sidebar-toggler";
-    toggler.className = "sidebar-toggler";
-    toggler.setAttribute('aria-label', "Open Sidebar");
-    document.body.appendChild(toggler);
+    const toggler = document.getElementById('sidebar-toggler');
     const overlay = document.getElementById('sidebar-overlay');
     let isDesktop = window.innerWidth >= 992;
+
+    // Mobile open sidebar
     toggler.addEventListener('click', function () {
       sidebar.classList.add('open');
       overlay.style.display = "block";
       document.body.style.overflow = "hidden";
     });
+
+    // Overlay closes sidebar
     overlay.addEventListener('click', function () {
       sidebar.classList.remove('open');
       overlay.style.display = "none";
       document.body.style.overflow = "";
     });
+
+    // Sidebar link auto-close on mobile/tablet
     document.querySelectorAll('.sidebar-menu a').forEach(link => {
       link.addEventListener('click', () => {
         if (window.innerWidth < 992) {
@@ -475,10 +470,13 @@
         }
       });
     });
+
+    // Desktop collapse toggler (button)
     window.toggleCollapse = function () {
       sidebar.classList.toggle('collapsed');
-      document.querySelector('.main-content').classList.toggle('collapsed');
     };
+
+    // Responsive handler: removes open/collapsed on resize
     window.addEventListener('resize', function () {
       let nowDesktop = window.innerWidth >= 992;
       if (nowDesktop !== isDesktop) {
@@ -491,43 +489,6 @@
         }
         isDesktop = nowDesktop;
       }
-    });
-    // Tabs logic
-    function showTab(tab) {
-      document.getElementById('upload').classList.remove('active');
-      document.getElementById('live').classList.remove('active');
-      document.getElementById(tab).classList.add('active');
-      if (tab === 'live') startLive(); else stopLive();
-    }
-    // Live Analysis
-    let stream;
-    async function startLive() {
-      try {
-        stream = await navigator.mediaDevices.getUserMedia({ video: true });
-        document.getElementById('liveVideo').srcObject = stream;
-      } catch (e) { alert('Camera access denied or unavailable.'); }
-    }
-    function stopLive() {
-      if (stream) { stream.getTracks().forEach(t => t.stop()); stream = null; }
-    }
-    document.getElementById('stopLive').addEventListener('click', stopLive);
-    // Upload Logic
-    const form = document.getElementById('uploadForm');
-    form.addEventListener('submit', async e => {
-      e.preventDefault();
-      const file = document.getElementById('videoFile').files[0];
-      if (!file) return alert('Select a video first.');
-      const fd = new FormData(); fd.append('videoFile', file);
-      const res = await fetch('http://127.0.0.1:5000/analyze_dribbling', { method: 'POST', body: fd });
-      if (!res.ok) return alert('Analysis failed.');
-      const data = await res.json();
-      document.getElementById('processedVideo').src = data.video_url;
-      document.getElementById('processedVideo').hidden = false;
-      document.getElementById('heightStat').innerText = data.height || '–';
-      document.getElementById('dribbleStat').innerText = data.dribble_count || '–';
-      document.getElementById('speedStat').innerText = data.speed || '–';
-      document.getElementById('statsBox').hidden = false;
-      document.getElementById('outputArea').hidden = false;
     });
   </script>
 </body>

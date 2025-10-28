@@ -1,433 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hoopers Den - Dashboard</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-  <style>
-    :root {
-      --sidebar-width: 220px;
-      --sidebar-width-collapsed: 64px;
-      --sidebar-bg: #162d4a;
-      --sidebar-header-height: 90px;
-      --sidebar-footer-height: 120px;
-      --accent-blue: #3c91e6;
-      --accent-green: #4cd964;
-      --neutral-light: #dfe3e6;
-      --neutral-text: #2f2f2f;
-      --neutral-card: #fff;
-      --neutral-subtext: #5c5c5c;
-      --neutral-border: #d1d1d1;
-      --overlay-bg: rgba(20, 30, 50, 0.56);
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hoopers Den - Login</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --accent-blue: #3c91e6;
+    --accent-green: #4cd964;
+    --neutral-light: #dfe3e6;
+    --neutral-lighter: #f2f4f5;
+    --neutral-card: #ffffff;
+    --neutral-border: #d1d1d1;
+    --neutral-text: #2f2f2f;
+    --neutral-subtext: #5c5c5c;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(145deg, var(--neutral-light), var(--neutral-lighter));
+    color: var(--neutral-text);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+  .login-container {
+    background: var(--neutral-card);
+    padding: 3rem 2.5rem;
+    max-width: 400px;
+    width: 100%;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+    border: 1px solid var(--neutral-border);
+    text-align: center;
+  }
+  .login-container h2 {
+    margin-bottom: 2rem;
+    color: var(--accent-blue);
+    font-weight: 700;
+    font-size: 1.8rem;
+  }
+  form {
+    width: 100%;
+  }
+  label {
+    display: block;
+    text-align: left;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--neutral-text);
+  }
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--neutral-border);
+    border-radius: 8px;
+    font-size: 1rem;
+    color: var(--neutral-text);
+    background: var(--neutral-lighter);
+    transition: border-color 0.3s ease;
+  }
+  input[type="email"]:focus,
+  input[type="password"]:focus {
+    border-color: var(--accent-blue);
+    outline: none;
+  }
+  button[type="submit"] {
+    width: 100%;
+    padding: 14px 0;
+    border: none;
+    border-radius: 8px;
+    background: var(--accent-blue);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.15rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  button[type="submit"]:hover {
+    background: var(--accent-green);
+  }
+  .footer-text {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--neutral-subtext);
+  }
+  .footer-text a {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .footer-text a:hover {
+    color: var(--accent-green);
+  }
+  @media (max-width: 420px) {
+    .login-container {
+      padding: 2rem 1.5rem;
     }
-
-    body {
-      margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      background: linear-gradient(145deg, var(--neutral-light), #f2f4f5);
-      color: var(--neutral-text);
-      min-height: 100vh;
-      display: flex;
+    .login-container h2 {
+      font-size: 1.5rem;
     }
-
-    /* Sidebar base */
-    .sidebar {
-      background: var(--sidebar-bg);
-      color: #fff;
-      width: var(--sidebar-width);
-      min-width: var(--sidebar-width);
-      max-width: 90vw;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      position: fixed;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      z-index: 200;
-      transition: left .3s, width .28s;
-    }
-
-    .sidebar-header {
-      height: var(--sidebar-header-height);
-      padding: 25px 20px 19px 22px;
-      display: flex;
-      align-items: center;
-      font-weight: 700;
-      font-size: 1.28rem;
-      border-bottom: 1px solid #223052;
-    }
-
-    .sidebar-header .h-title {
-      margin-left: 15px;
-      white-space: nowrap;
-      transition: opacity .3s;
-    }
-
-    /* Sidebar menu & footer */
-    .sidebar-menu {
-      flex-grow: 1;
-      overflow-y: auto;
-    }
-
-    .sidebar-menu ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .sidebar-menu a {
-      display: flex;
-      align-items: center;
-      color: #dee2ec;
-      text-decoration: none;
-      font-weight: 500;
-      padding: 15px 20px;
-      font-size: 0.97rem;
-      transition: background .2s, color .22s;
-      border-left: 3px solid transparent;
-    }
-
-    .sidebar-menu a:hover,
-    .sidebar-menu li.active>a {
-      background: #233764;
-      color: var(--accent-green);
-      border-left: 3px solid var(--accent-green);
-    }
-
-    .sidebar-menu .icon {
-      font-size: 1.3em;
-      width: 32px;
-      min-width: 32px;
-    }
-
-    .sidebar-footer {
-      height: var(--sidebar-footer-height);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-top: 1px solid #223052;
-      font-size: 0.86em;
-      background: transparent;
-      padding: 10px;
-      color: #c0ccda;
-    }
-
-    /* Sidebar collapse for desktop */
-    .sidebar.collapsed {
-      width: var(--sidebar-width-collapsed);
-      min-width: var(--sidebar-width-collapsed);
-    }
-
-    .sidebar.collapsed .h-title {
-      opacity: 0;
-      width: 0;
-      margin: 0;
-    }
-
-    .sidebar.collapsed .sidebar-menu a span:not(.icon) {
-      display: none;
-    }
-
-    /* Sidebar overlay for mobile */
-    .sidebar-overlay {
-      display: none;
-      position: fixed;
-      left: 0;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      background: var(--overlay-bg);
-      z-index: 199;
-    }
-
-    i.ri-arrow-left-s-line {
-      background-color: #fff;
-      border-radius: 3px;
-    }
-
-    /* Main content */
-    .main-content {
-      flex: 1 1 0%;
-      margin-left: var(--sidebar-width);
-      padding: 48px 38px 0 38px;
-      min-width: 0;
-      transition: margin-left .3s;
-      width: 100%;
-    }
-
-    .sidebar.collapsed~.main-content {
-      margin-left: var(--sidebar-width-collapsed);
-    }
-
-    /* Sidebar toggler - only visible mobile/tablet */
-    .sidebar-toggler {
-      display: none;
-      position: fixed;
-      left: 17px;
-      top: 17px;
-      background: #fff;
-      color: var(--accent-blue);
-
-      border-radius: 6px;
-      box-shadow: 0 2px 7px rgba(0, 0, 0, 0.09);
-      padding: 7px 10px;
-      z-index: 300;
-      border: none;
-      cursor: pointer;
-    }
-
-    /* Sidebar collapser (desktop only) */
-    .sidebar-collapser {
-      background: none;
-      border: none;
-      color: var(--accent-blue);
-      position: absolute;
-      top: 18px;
-      right: -19px;
-      cursor: pointer;
-      font-size: 1.25em;
-      z-index: 250;
-      display: none;
-    }
-
-    @media (min-width: 992px) {
-      .sidebar-collapser {
-        display: block;
-      }
-
-      .sidebar-toggler {
-        display: none;
-      }
-
-      .sidebar {
-        left: 0 !important;
-      }
-
-      .main-content {
-        margin-left: var(--sidebar-width);
-      }
-    }
-
-    /* Mobile/Tablet: Sidebar slides over content */
-    @media (max-width: 991px) {
-      .sidebar {
-        left: -220px;
-        width: 220px;
-        min-width: 220px;
-        transition: left .3s;
-      }
-
-      .sidebar.open {
-        left: 0;
-      }
-
-      .sidebar-collapser {
-        display: none;
-      }
-
-      .sidebar-toggler {
-        display: block;
-      }
-
-      .main-content {
-        margin-left: 0 !important;
-        padding: 24px 4vw;
-      }
-
-      .sidebar-overlay {
-        display: none;
-        /* enabled by JS */
-      }
-
-      .sidebar.open~.sidebar-overlay {
-        display: block;
-      }
-    }
-
-    /* Dashboard cards & responsive grid */
-    .dashboard {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 25px;
-    }
-
-    .card {
-      background: var(--neutral-card);
-      border-radius: 12px;
-      padding: 22px 14px;
-      text-align: center;
-      border: 1px solid var(--neutral-border);
-      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.07);
-      min-height: 120px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      cursor: pointer;
-      transition: .25s;
-    }
-
-    .card h2 {
-      font-size: 1.05rem;
-      margin-bottom: 8px;
-    }
-
-    .card p {
-      font-size: 0.86rem;
-      color: var(--neutral-subtext);
-      margin: 0;
-    }
-
-    .card:hover {
-      border-color: var(--accent-green);
-      color: var(--accent-green);
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.11);
-    }
-
-    .card:hover h2 {
-      color: var(--accent-green);
-    }
-
-    @media (max-width: 900px) {
-      .dashboard {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 18px;
-      }
-
-      .card {
-        padding: 15px 7px;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .dashboard {
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-
-      .main-content {
-        padding: 12vw 2vw 0 2vw;
-      }
-
-      .card {
-        padding: 9px 2px;
-        min-height: 80px;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
-
 <body>
-  <!-- Sidebar -->
-  <nav class="sidebar" id="sidebar">
-    <div class="sidebar-header">
-      <span class="icon"><i class="ri-basketball-fill"></i></span>
-      <span class="h-title">Hoopers Den</span>
-      <button class="sidebar-collapser" title="Collapse Sidebar" onclick="toggleCollapse()">
-        <i class="ri-arrow-left-s-line"></i>
-      </button>
+  <div class="login-container">
+    <h2>Hoopers Den Login</h2>
+    <form id="loginForm">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" placeholder="gangulya111@gmail.com" required  />
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Enter your password" required />
+      <button type="submit">Sign In</button>
+    </form>
+    <div class="footer-text">
+      Don't have an account? <a href="register.html">Register here</a>
     </div>
-    <div class="sidebar-menu">
-      <ul>
-        <li class="active"><a href="index.html"><span class="icon"><i class="ri-dashboard-fill"></i></span>
-            <span>Dashboard</span></a></li>
-        <li><a href="profile2.html"><span class="icon"><i class="ri-user-fill"></i></span> <span>Profile</span></a></li>
-        <li><a href="Shooting-Analysis.html"><span class="icon"><i class="ri-basketball-line"></i></span>
-            <span>Shooting</span></a></li>
-        <li><a href="Dribbling-Analysis.html"><span class="icon"><i class="ri-dribbble-line"></i></span>
-            <span>Dribbling</span></a></li>
-        <li><a href="Training-Module.html"><span class="icon"><i class="ri-run-line"></i></span>
-            <span>Training</span></a></li>
-        <!--        <li><a href="trainer.html"><span class="icon"><i class="ri-team-line"></i></span> <span>Trainer</span></a></li>-->
-        <li><a href="Gamification.html"><span class="icon"><i class="ri-award-line"></i></span>
-            <span>Gamification</span></a></li>
-        <li><a href="log-out.html"><span class="icon"><i class="ri-logout-box-r-line"></i></span>
-            <span>Logout</span></a></li>
-      </ul>
-    </div>
-    <div class="sidebar-footer">© 2025 Hoopers Den<br>Powered by Motion AI</div>
-  </nav>
-  <div class="sidebar-overlay" id="sidebar-overlay"></div>
-  <main class="main-content">
-    <button class="sidebar-toggler" id="sidebar-toggler" aria-label="Open Sidebar">
-      <i class="ri-menu-line"></i>
-    </button>
-    <header>
-      <h1>Dashboard Overview</h1>
-    </header>
-    <section class="dashboard">
-      <div class="card" onclick="location.href='Shooting-Analysis.html'">
-        <h2>Shooting Analysis</h2>
-        <p>Track shot angles, release speed, and accuracy.</p>
-      </div>
-      <div class="card" onclick="location.href='Dribbling-Analysis.html'">
-        <h2>Dribbling Analysis</h2>
-        <p>Analyze rhythm, hand switches, and control.</p>
-      </div>
-      <div class="card" onclick="location.href='Training-Module.html'">
-        <h2>Training Module</h2>
-        <p>Do squats, lunges, and agility drills.</p>
-      </div>
-      <div class="card" onclick="location.href='profile2.html'">
-        <h2>Trainer Collaboration</h2>
-        <p>Chat, view goals, and get feedback.</p>
-      </div>
-      <div class="card" onclick="location.href='Gamification.html'">
-        <h2>Gamification</h2>
-        <p>Earn XP, badges, and compete.</p>
-      </div>
-    </section>
-  </main>
+  </div>
+
   <script>
-    const sidebar = document.getElementById('sidebar');
-    const toggler = document.getElementById('sidebar-toggler');
-    const overlay = document.getElementById('sidebar-overlay');
-    let isDesktop = window.innerWidth >= 992;
-    // Mobile open sidebar
-    toggler.addEventListener('click', function () {
-      sidebar.classList.add('open');
-      overlay.style.display = "block";
-      document.body.style.overflow = "hidden";
-    });
-    // Overlay closes sidebar
-    overlay.addEventListener('click', function () {
-      sidebar.classList.remove('open');
-      overlay.style.display = "none";
-      document.body.style.overflow = "";
-    });
-    // Sidebar link auto-close on mobile/tablet
-    document.querySelectorAll('.sidebar-menu a').forEach(link => {
-      link.addEventListener('click', () => {
-        if (window.innerWidth < 992) {
-          sidebar.classList.remove('open');
-          overlay.style.display = "none";
-          document.body.style.overflow = "";
-        }
-      });
-    });
-    // Desktop collapse toggler (button)
-    window.toggleCollapse = function () {
-      sidebar.classList.toggle('collapsed');
-      document.querySelector('.main-content').classList.toggle('collapsed'); // Optional main adjustment
-    };
-    // Responsive handler: removes open/collapsed on resize
-    window.addEventListener('resize', function () {
-      let nowDesktop = window.innerWidth >= 992;
-      if (nowDesktop !== isDesktop) {
-        if (nowDesktop) {
-          sidebar.classList.remove('open');
-          overlay.style.display = "none";
-          document.body.style.overflow = "";
-        } else {
-          sidebar.classList.remove('collapsed');
-        }
-        isDesktop = nowDesktop;
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      
+      if (email && password) {
+        window.location.href = 'home.html';
       }
     });
   </script>
 </body>
-
 </html>
