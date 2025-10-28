@@ -1,227 +1,339 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Basketball Training App - Presentation</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 <style>
-  body {
-    font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(145deg, #dfe3e6, #f2f4f5);
-    color: #2f2f2f;
-    margin: 0;
-    padding: 20px;
-  }
-  .container {
-    max-width: 1080px;
-    margin: auto;
-  }
-  section {
-    background: #fff;
-    border-radius: 14px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    padding: 20px 25px;
-    margin-bottom: 30px;
-    border: 1px solid #d1d1d1;
-  }
-  section h2 {
-    color: #3c91e6;
-    margin-top: 0;
-  }
-  section img {
-    max-width: 100%;
-    height: auto;
-    margin: 15px 0;
-    border-radius: 10px;
-  }
-  p {
-    font-size: 1rem;
-    line-height: 1.4;
-  }
-	.maintext{
-		text-align: center;
-		font-size: 30px;
-	}
-	
-.container {
-    max-width: 1080px;
-    margin: 36px auto;
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.07);
-    padding: 28px 24px 40px;
-    border: 1px solid #d1d1d1;
-  }
-  h1, h2 {
-    margin-top: 0;
-    font-weight: 700;
-    color: #3c91e6;
-    text-align: center;
-    letter-spacing: 2px;
-  }
-  h1 {
-    font-size: 2.1rem;
-    margin-bottom: 35px;
-  }
-  h2 {
-    font-size: 2rem;
-    margin-bottom: 30px;
-  }
-	section.toppart p {
-    font-size: 22px;
-    padding-left: 30px;
-    line-height: 2.5;
+:root {
+  --sidebar-width: 220px;
+  --sidebar-width-collapsed: 64px;
+  --sidebar-bg: #162d4a;
+  --sidebar-header-height: 90px;
+  --sidebar-footer-height: 120px;
+  --accent-blue: #3c91e6;
+  --accent-green: #4cd964;
+  --neutral-light: #dfe3e6;
+  --neutral-text: #2f2f2f;
+  --neutral-card: #fff;
+  --neutral-subtext: #5c5c5c;
+  --neutral-border: #d1d1d1;
+  --overlay-bg: rgba(20,30,50,0.56);
 }
-	section.toppart {
-    padding: 50px;
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(145deg, var(--neutral-light), #f2f4f5);
+  color: var(--neutral-text);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
 }
-  .ppt-image, .analysis-visual {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 30px;
-    box-shadow: 0 4px 16px rgba(60,145,230,0.07);
-    background: #f0f6fd;
-  }
-  .module-list {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    margin: 0;
-    padding: 0;
-  }
-  .module-card {
-    background: #c7dbf1;
-    border-radius: 8px;
-    padding: 20px 22px;
-    font-size: 1.18rem;
-    font-weight: 500;
-    color: #192841;
-    margin-bottom: 0;
-  }
-  .module-card:last-child {
-    background: #e1eaf6;
-    color: #234;
-  }
-	.analysis-text ul li {
+.analysis-text1 ul li {
     line-height: 2;
     font-size: 20px;
 }
-  .analysis-section {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 32px;
-    align-items: flex-start;
-    margin-bottom: 20px;
-  }
-  .analysis-text {
-    flex: 2 1 350px;
-    min-width: 310px;
-  }
-  .analysis-img-block {
-    flex: 1 1 320px;
-    text-align: center;
-    min-width: 260px;
-  }
-  ul {
-    margin-top: 0;
-  }
-  .side-columns {
-    display: flex;
-    gap: 38px;
-    margin-top: 5px;
-    margin-bottom: 15px;
-  }
-  .side-list {
-    flex: 1 1 190px;
-    background: #f6fafd;
-    border: 1px solid #d1d1d1;
-    border-radius: 8px;
-    padding: 13px 18px 10px 18px;
-    font-size: 1rem;
-  }
-  .side-list ul {
-    margin: 8px 0 0 0;
-    padding-left: 20px;
-  }
-  .side-list strong {
-    color: #3c91e6;
-    display: block;
-    margin-bottom: 4px;
-  }
-  .outcome {
-    margin-top: 18px;
-    font-size: 1.02rem;
-    background: #e7f3ed;
-    border-radius: 7px;
-    padding: 12px 15px;
-    color: #245852;
-    font-weight: 500;
-    text-align: center;
-  }
-	
-	#accordion {
+.analysis-text2 ul li {
+    line-height: 2;
+    font-size: 20px;
+}
+.sidebar {
+  background: var(--sidebar-bg);
+  color: #fff;
+  width: var(--sidebar-width);
+  min-width: var(--sidebar-width);
+  max-width: 90vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  transition: left .3s, width .28s;
+}
+.sidebar-header {
+  height: var(--sidebar-header-height);
+  padding: 25px 20px 19px 22px;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.28rem;
+  border-bottom: 1px solid #223052;
+}
+.sidebar-header .h-title {
+  margin-left: 15px;
+  white-space: nowrap;
+  transition: opacity .3s;
+}
+.sidebar-menu {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+.sidebar-menu ul { list-style: none; padding: 0; margin: 0; }
+.sidebar-menu a {
+  display: flex;
+  align-items: center;
+  color: #dee2ec;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 15px 20px;
+  font-size: 0.97rem;
+  border-left: 3px solid transparent;
+  transition: background .2s, color .22s;
+}
+.sidebar-menu a:hover, .sidebar-menu li.active > a {
+  background: #233764;
+  color: var(--accent-green);
+  border-left: 3px solid var(--accent-green);
+}
+.sidebar-menu .icon {
+  font-size: 1.3em;
+  width: 32px;
+  min-width: 32px;
+}
+.sidebar-footer {
+  height: var(--sidebar-footer-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid #223052;
+  font-size: 0.86em;
+  background: transparent;
+  padding: 10px;
+  color: #c0ccda;
+}
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  left: 0; top: 0; right: 0; bottom: 0;
+  background: var(--overlay-bg);
+  z-index: 199;
+}
+.sidebar.collapsed {
+  width: var(--sidebar-width-collapsed);
+  min-width: var(--sidebar-width-collapsed);
+}
+.sidebar.collapsed .h-title { opacity: 0; width: 0; margin: 0; }
+.sidebar.collapsed .sidebar-menu a span:not(.icon) { display: none; }
+.main-content {
+  flex: 1 1 0%;
+  margin-left: var(--sidebar-width);
+  padding: 48px 38px 0 38px;
+  min-width: 0;
+  transition: margin-left .3s;
   width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
-.accordion-item {
-  border-radius: 8px;
-  box-shadow: 0 2px 7px #cce3f6;
-  margin-bottom: 13px;
-  background: #e2ecfa;
-  border: 1px solid #bed6ea;
+.sidebar.collapsed ~ .main-content {
+  margin-left: var(--sidebar-width-collapsed);
 }
-.accordion-header {
+.sidebar-toggler {
+  display: none;
+  position: fixed;
+  left: 17px;
+  top: 17px;
+  background: #fff;
+  color: var(--accent-blue);
+  border-radius: 6px;
+  box-shadow: 0 2px 7px rgba(0,0,0,0.09);
+  padding: 7px 10px;
+  z-index: 300;
+  border: none;
+  cursor: pointer;
+}
+.sidebar-collapser {
   background: none;
   border: none;
-  outline: none;
-  width: 100%;
-  text-align: left;
-  font-size: 1.14rem;
-  font-weight: 600;
-  padding: 15px 18px;
+  color: var(--accent-blue);
+  position: absolute;
+  top: 18px;
+  right: -19px;
   cursor: pointer;
-  border-radius: 8px;
-  color: #234;
-  transition: background 0.19s;
+  font-size: 1.25em;
+  z-index: 250;
+  display: none;
 }
-.accordion-header:hover,
-.accordion-header.active {
-  background: #c7dbf1;
-  color: #2066a8;
+i.ri-arrow-left-s-line {
+  background-color: #fff;
+  border-radius: 3px;
 }
-.accordion-content {
-  padding: 0 18px 0 18px;
-  max-height: 0;
-  overflow: hidden;
-  background: #f9fcff;
-  border-radius: 0 0 8px 8px;
-  border-top: 1px solid #d1d1d1;
-  transition: max-height 0.32s cubic-bezier(.41,.2,.23,1);
+@media (min-width: 992px) {
+  .sidebar-collapser { display: block; }
+  .sidebar-toggler { display: none; }
+  .sidebar { left: 0 !important; }
+  .main-content { margin-left: var(--sidebar-width); }
 }
-.accordion-content.open {
-  max-height: 900px; /* enough for your short content */
-  padding-bottom: 14px;
-}
-  @media (max-width: 800px) {
-	  section.toppart {
-    padding: 20px;
-}
-    .analysis-section, .side-columns {
-      flex-direction: column;
-      gap: 20px;
-    }
-    .container {
-      padding: 10px 3vw 18px;
-    }
-    h1 {font-size: 1.38rem;}
-    h2 {font-size: 1.12rem;}
-    .module-card {font-size: 1rem; padding: 13px 9px;}
-    .ppt-image, .analysis-visual {margin-bottom: 15px;}
+@media (max-width: 991px) {
+  .sidebar {
+    left: -220px;
+    width: 220px;
+    min-width: 220px;
+    transition: left .3s;
   }
+  .sidebar.open { left: 0; }
+  .sidebar-collapser { display: none; }
+  .sidebar-toggler { display: block; }
+  .main-content { margin-left: 0 !important; padding: 24px 4vw; }
+  .sidebar-overlay { display: none; }
+  .sidebar.open ~ .sidebar-overlay { display: block; }
+}
+/* Footer */
+footer {
+  text-align: center;
+  padding: 24px 8px 14px 8px;
+  font-size: .99rem;
+  color: #5c5c5c;
+  background: #ffffffd9;
+  border-top: 1px solid #d1d1d1;
+  margin-top: auto;
+}
+
+/* --- Add your main presentation and accordion styles BELOW this line --- */
+/* ... (paste your container, section, accordion, analysis-section, etc., CSS here as needed) ... */
+.container {
+  max-width: 1080px;
+  margin: 36px auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+  padding: 28px 24px 40px;
+  border: 1px solid #d1d1d1;
+}
+h1, h2 {
+  margin-top: 0;
+  font-weight: 700;
+  color: #3c91e6;
+  text-align: center;
+  letter-spacing: 2px;
+}
+h1 {
+  font-size: 2.1rem;
+  margin-bottom: 35px;
+}
+h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+	ul.appinfoo {
+    border-top: 1px solid #ffffff54;
+    border-bottom: 1px solid #ffffff54;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+section.toppart p { font-size: 22px; padding-left: 30px; line-height: 2.5; }
+section.toppart { padding: 50px; }
+.module-list { display: flex; flex-direction: column; gap: 18px; margin: 0; padding: 0; }
+.module-card {
+  background: #c7dbf1;
+  border-radius: 8px;
+  padding: 20px 22px;
+  font-size: 1.18rem;
+  font-weight: 500;
+  color: #192841;
+  margin-bottom: 0;
+}
+.module-card:last-child { background: #e1eaf6; color: #234; }
+.analysis-text ul li { line-height: 2; font-size: 20px; }
+.analysis-section {
+  display: flex; flex-wrap: wrap; gap: 32px;
+  align-items: flex-start; margin-bottom: 20px;
+}
+img.analysis-visual {
+    width: 100%;
+}
+.analysis-text { width: 45%; }
+.analysis-img-block { width: 50%; }
+.side-columns { display: flex; gap: 38px; margin-top: 5px; margin-bottom: 15px; }
+.side-list {
+  flex: 1 1 190px; background: #f6fafd; border: 1px solid #d1d1d1;
+  border-radius: 8px; padding: 13px 18px 10px 18px; font-size: 1rem;
+}
+.side-list ul { margin: 8px 0 0 0; padding-left: 20px; }
+.side-list strong { color: #3c91e6; display: block; margin-bottom: 4px;}
+.outcome { margin-top: 18px; font-size: 1.02rem; background: #e7f3ed; border-radius: 7px;
+  padding: 12px 15px; color: #245852; font-weight: 500; text-align: center;}
+#accordion { max-width: 1200px; margin: 0 auto;}
+.accordion-item { background: #fff; border-radius: 10px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); overflow: hidden; transition: box-shadow 0.3s ease;}
+.accordion-item:hover { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12); }
+.accordion-header { width: 100%; padding: 20px 25px; background: #c7dbf1; color: #1a3454; border: none; text-align: left; font-size: 1.1rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background 0.3s ease; position: relative;}
+.accordion-header:hover { background: #1a3454; color: #fff; }
+.accordion-header.active { background: #3c91e6; }
+.accordion-icon { font-size: 1.5rem; font-weight: 300; transition: transform 0.3s ease; line-height: 1; }
+.accordion-header.active .accordion-icon { transform: rotate(180deg);}
+.accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; background: #f9fafb;}
+.accordion-content.active { max-height: 3000px;}
+.accordion-inner { padding: 25px;}
+@media (max-width: 800px) {
+  section.toppart { padding: 20px; }
+  .analysis-section, .side-columns { flex-direction: column; gap: 20px; }
+  .container { padding: 10px 3vw 18px; }
+  h1{font-size:1.38rem;}
+  h2{font-size:1.12rem;}
+  .module-card{font-size:1rem; padding: 13px 9px;}
+}
+@media (max-width: 768px) {
+  .accordion-header { padding: 16px 18px; font-size: 1rem;}
+  .container h2 { font-size: 1.5rem;}
+  .accordion-inner { padding: 18px;}
+  .side-columns { grid-template-columns: 1fr; }
+  .analysis-text {
+    width: 100%;
+}
+.analysis-text1 {
+    width: 100%;
+}
+.analysis-text2 {
+    width: 100%;
+}
+.analysis-img-block {
+    width: 100%;
+}
+}
 </style>
 </head>
 <body>
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <span class="icon"><i class="ri-basketball-fill"></i></span>
+      <span class="h-title">Hoopers Den</span>
+      <button class="sidebar-collapser" title="Collapse Sidebar" onclick="toggleCollapse()">
+        <i class="ri-arrow-left-s-line"></i>
+      </button>
+    </div>
+    <div class="sidebar-menu">
+       <ul>
+        <li><a href="home.html"><span class="icon"><i class="ri-dashboard-fill"></i></span>
+            <span>Dashboard</span></a></li>
+        <li><a href="profile2.html"><span class="icon"><i class="ri-user-fill"></i></span> <span>Profile</span></a>
+        </li>
+        <li><a href="Shooting-Analysis.html"><span class="icon"><i class="ri-basketball-line"></i></span>
+            <span>Shooting</span></a></li>
+        <li><a href="Dribbling-Analysis.html"><span class="icon"><i class="ri-dribbble-line"></i></span>
+            <span>Dribbling</span></a></li>
+        <li><a href="Training-Module.html"><span class="icon"><i class="ri-run-line"></i></span>
+            <span>Training</span></a></li>
+        <li><a href="Gamification.html"><span class="icon"><i class="ri-award-line"></i></span>
+            <span>Gamification</span></a></li>
+        <li><a href="log-out.html"><span class="icon"><i class="ri-logout-box-r-line"></i></span>
+            <span>Logout</span></a></li>
+      </ul>
+      <ul style="margin-top: 30px;" class="appinfoo">
+        <li class="active"><a href="ppt.html"><span class="icon"><i class="ri-information-line"></i></span>
+            <span>App Info</span></a></li>
+      </ul>
+    </div>
+    <div class="sidebar-footer">© 2025 Hoopers Den<br>Powered by Motion AI</div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+  <main class="main-content">
+    <!-- Your original presentation content starts here: -->
   <div class="container">
     <section class="toppart">
       <h2 class="maintext">Basketball Performance Analysis & Training App</h2>
@@ -241,68 +353,68 @@
   
   <div id="accordion">
     <div class="accordion-item">
-      <button class="accordion-header">1. Shooting Analysis</button>
+      <button class="accordion-header">
+        <span>1. Shooting Analysis</span>
+        <span class="accordion-icon">+</span>
+      </button>
       <div class="accordion-content">
-        <div style="padding:12px 6px 6px 0;">
-         <div class="container">
-    <!-- Second Section: Shooting Analysis Module -->
-    <h2 style="margin-top:70px;">Shooting Analysis Module (Overview)</h2>
-    <div class="analysis-section">
-      <div class="analysis-text">
-		  <div style="margin-bottom:12px;font-size: 18px;"><strong>Goal:</strong></div>
-        <ul>
-          <li> Evaluate overall shooting technique.</li>
-        </ul>
-        <div style="margin-bottom:12px; font-size: 18px;"><strong>Core Metrics:</strong></div>
-        <ul>
-          <li>Posture, trajectory, timing</li>
-          <li>Knee &amp; hip angles</li>
-          <li>Elbow angle</li>
-          <li>Finger flexion</li>
-          <li>Ball entry angle, height, speed</li>
-          <li>Dribble &amp; shot phase timing</li>
-        </ul>
-       
-       
-      </div>
-      <div class="analysis-img-block">
-        <img src="images/Picture2.png" alt="Shooting Analysis Module Visual" class="analysis-visual" />
-	
-		
-    </div>
-		<div class="accodianbot">
-			 
-		   <div class="side-columns">
-          <div class="side-list">
-            <strong>Skilled Player:</strong>
-            <ul>
-              <li>Deep bend, high arc, fast release.</li>
-              <li>Smooth follow-through, steep entry angle.</li>
-              <li>Low stance, smooth hand switches, fast consistent rhythm.</li>
-            </ul>
+        <div class="accordion-inner">
+          <div class="container">
+            <h2>Shooting Analysis Module (Overview)</h2>
+            <div class="analysis-section">
+              <div class="analysis-text">
+                <div style="margin-bottom:12px;"><strong>Goal:</strong></div>
+                <ul>
+                  <li>Evaluate overall shooting technique.</li>
+                </ul>
+                <div style="margin-bottom:12px;"><strong>Core Metrics:</strong></div>
+                <ul>
+                  <li>Posture, trajectory, timing</li>
+                  <li>Knee &amp; hip angles</li>
+                  <li>Elbow angle</li>
+                  <li>Finger flexion</li>
+                  <li>Ball entry angle, height, speed</li>
+                  <li>Dribble &amp; shot phase timing</li>
+                </ul>
+              </div>
+              <div class="analysis-img-block">
+                <img src="images/Picture2.png" alt="Shooting Analysis Module Visual" class="analysis-visual" />
+              </div>
+              <div class="accodianbot">
+                <div class="side-columns">
+                  <div class="side-list">
+                    <strong>Skilled Player:</strong>
+                    <ul>
+                      <li>Deep bend, high arc, fast release.</li>
+                      <li>Smooth follow-through, steep entry angle.</li>
+                      <li>Low stance, smooth hand switches, fast consistent rhythm.</li>
+                    </ul>
+                  </div>
+                  <div class="side-list">
+                    <strong>Less Skilled Player:</strong>
+                    <ul>
+                      <li>Upright posture, flat arc, short release.</li>
+                      <li>Straighter fingers, slower speed.</li>
+                      <li>Upright, slow, irregular, weak control.</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="outcome">
+                  Outcome: Visual comparison, performance graphs, and trajectory mapping.
+                </div>
+              </div>
+            </div>
           </div>
-          
-        
-		  <div class="side-list">
-            <strong>Less Skilled Player:</strong>
-            <ul>
-              <li>Upright posture, flat arc, short release.</li>
-              <li>Straighter fingers, slower speed.</li>
-              <li>Upright, slow, irregular, weak control.</li>
-            </ul>
-          </div>
-			   </div>
-      </div>
-		 <div class="outcome">
-          Outcome: Visual comparison, performance graphs, and trajectory mapping.
-        </div>
-		</div>
-  </div>
         </div>
       </div>
     </div>
+
+    <!-- Add more accordion items here -->
     <div class="accordion-item">
-      <button class="accordion-header">2. Dribbling Analysis</button>
+      <button class="accordion-header">
+        <span>2. Dribbling Analysis</span>
+        <span class="accordion-icon">+</span>
+      </button>
       <div class="accordion-content">
         <div style="padding:12px 6px 6px 0;">
          <div class="container">
@@ -330,7 +442,7 @@
 		  
       </div>
       <div class="analysis-img-block">
-        <img src="images/Picture1.png" alt="Shooting Analysis Module Visual" class="analysis-visual" />
+        <img src="images/Picture2.png" alt="Shooting Analysis Module Visual" class="analysis-visual" />
       </div>
 		
 		<div class="acoodbot">
@@ -363,8 +475,12 @@
         </div>
       </div>
     </div>
+
     <div class="accordion-item">
-      <button class="accordion-header">3. Training Module</button>
+      <button class="accordion-header">
+        <span>3. Training Module</span>
+        <span class="accordion-icon">+</span>
+      </button>
       <div class="accordion-content">
         <div style="padding:12px 6px 6px 0;">
          <div class="container">
@@ -390,11 +506,6 @@
         </div>
       </div>
     </div>
-   
-	  
-	  <div style="padding:12px 6px 6px 0; font-size: 20px;">
-         <strong> Each generates data-driven feedback & progress tracking dashboards.</strong>
-        </div>
   </div>
 </div>
 
@@ -409,10 +520,10 @@
         </ul>
         <div style="margin-bottom:12px;">
         <ul>
-          <li>- Real-time monitoring of player stats & goal completion.
+          <li>Real-time monitoring of player stats & goal completion.
 </li>
           <li>Integrated chat and video review for remote guidance.</li>
-			<li>- AI suggestions recommend corrective drills automatically.
+			<li>AI suggestions recommend corrective drills automatically.
 </li>
         </ul>
 			</div>
@@ -434,17 +545,17 @@
     <div class="analysis-section">
       <div class="analysis-text">
         <ul>
-          <li>- XP points, badges, and leaderboards drive consistency.
+          <li>XP points, badges, and leaderboards drive consistency.
 </li>
         </ul>
         <div style="margin-bottom:12px;">
         <ul>
-          <li>- Streak rewards for daily practice & improvement.
+          <li>Streak rewards for daily practice & improvement.
 
 </li>
-          <li>- ‘Coach Challenges’ create team-based competition.
+          <li>‘Coach Challenges’ create team-based competition.
 </li>
-			<li>- Unlock levels tied to measurable skill growth.
+			<li> Unlock levels tied to measurable skill growth.
 
 </li>
         </ul>
@@ -492,7 +603,7 @@
 			</div>
       </div>
       <div class="analysis-img-block">
-        <div class="analysis-text" style="margin-bottom:12px; text-align: left;">
+        <div class="analysis-text1" style="margin-bottom:12px; text-align: left;">
         <ul>
           
           <li>- Enables continuous data tracking and feedback.- Merges research-backed analytics with everyday learning.
@@ -519,7 +630,7 @@
     <!-- Second Section: Shooting Analysis Module -->
     <h2 style="margin-top:70px;">Conclusion & Next Steps</h2>
     <div class="analysis-section">
-      <div class="analysis-text">
+      <div class="analysis-text2">
         <ul>
           <li>- Motion-capture research confirms performance improvement potential.
 
@@ -550,24 +661,82 @@
   </div>
 	
 	</div>
-	
-	<script>
-document.querySelectorAll('.accordion-header').forEach(header => {
-  header.addEventListener('click', function() {
-    // Close all
-    document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('open'));
-    document.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('active'));
-    // Open this one
-    if (!this.nextElementSibling.classList.contains('open')) {
-      this.nextElementSibling.classList.add('open');
-      this.classList.add('active');
-    }
-  });
-});
-// Optionally, open first accordion by default
-document.querySelector('.accordion-header').click();
-</script>
+	</div>
+    <footer>
+      © 2025 Hoopers Den | Powered by Motion AI
+    </footer>
+  </main>
+  <script>
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+    // Mobile sidebar toggler
+    const togglerBtn = document.createElement('button');
+    togglerBtn.innerHTML = '<i class="ri-menu-line"></i>';
+    togglerBtn.id = "sidebar-toggler";
+    togglerBtn.className = "sidebar-toggler";
+    togglerBtn.setAttribute('aria-label', "Open Sidebar");
+    document.body.appendChild(togglerBtn);
+    let isDesktop = window.innerWidth >= 992;
+    togglerBtn.addEventListener('click', function() {
+      sidebar.classList.add('open');
+      overlay.style.display = "block";
+      document.body.style.overflow = "hidden";
+    });
+    overlay.addEventListener('click', function() {
+      sidebar.classList.remove('open');
+      overlay.style.display = "none";
+      document.body.style.overflow = "";
+    });
+    document.querySelectorAll('.sidebar-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < 992) {
+          sidebar.classList.remove('open');
+          overlay.style.display = "none";
+          document.body.style.overflow = "";
+        }
+      });
+    });
+    window.toggleCollapse = function() {
+      sidebar.classList.toggle('collapsed');
+      document.querySelector('.main-content').classList.toggle('collapsed');
+    };
+    window.addEventListener('resize', function() {
+      let nowDesktop = window.innerWidth >= 992;
+      if (nowDesktop !== isDesktop) {
+        if (nowDesktop) {
+          sidebar.classList.remove('open');
+          overlay.style.display = "none";
+          document.body.style.overflow = "";
+        } else {
+          sidebar.classList.remove('collapsed');
+        }
+        isDesktop = nowDesktop;
+      }
+    });
 
-	
+    // Accordion logic (your previous)
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+    accordionHeaders.forEach(header => {
+      header.addEventListener('click', function() {
+        const accordionItem = this.parentElement;
+        const accordionContent = this.nextElementSibling;
+        const icon = this.querySelector('.accordion-icon');
+        // Toggle active class
+        const isActive = this.classList.contains('active');
+        // Close all accordions
+        accordionHeaders.forEach(h => {
+          h.classList.remove('active');
+          h.nextElementSibling.classList.remove('active');
+          h.querySelector('.accordion-icon').textContent = '+';
+        });
+        // Open clicked accordion if it wasn't active
+        if (!isActive) {
+          this.classList.add('active');
+          accordionContent.classList.add('active');
+          icon.textContent = '−';
+        }
+      });
+    });
+  </script>
 </body>
 </html>
