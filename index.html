@@ -62,6 +62,7 @@
   input[type="email"],
   input[type="password"] {
     width: 100%;
+    max-width: 370px;
     padding: 12px 14px;
     margin-bottom: 1.5rem;
     border: 1px solid var(--neutral-border);
@@ -92,15 +93,20 @@
     background: var(--accent-green);
   }
   .footer-text {
-    margin-top: 1.5rem;
-    font-size: 0.9rem;
+     margin-top: 1.5rem;
+    font-size: 13px;
     color: var(--neutral-subtext);
+    display: flex;
+    text-align: left;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
   }
   .footer-text a {
-    color: var(--accent-blue);
+    color: #262626b8;
     text-decoration: none;
-    font-weight: 600;
-  }
+    font-weight: 500;
+}
   .footer-text a:hover {
     color: var(--accent-green);
   }
@@ -126,7 +132,8 @@
       <button type="submit">Sign In</button>
     </form>
     <div class="footer-text">
-      Don't have an account? <a href="#">Register here</a>
+      <img src="images/information.png" style="width: 19px; margin-top: 4px;"> <a>You can put any email id as user id and Pass123 as password</a>
+      <!-- Don't have an account? <a href="#">Register here</a> -->
     </div>
   </div>
 
